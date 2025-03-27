@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://bm32b3c0phchv"]
+
+[ext_resource type="PackedScene" uid="uid://bx47a5c16vxi0" path="res://scenes/world_1.tscn" id="1_6wofq"]
+[ext_resource type="PackedScene" uid="uid://cpwrooa16ujca" path="res://scenes/Player.tscn" id="2_7gfon"]
+[ext_resource type="PackedScene" uid="uid://bx2b1rmnovyl0" path="res://scenes/ObjLamp.tscn" id="2_7h1ep"]
+[ext_resource type="PackedScene" uid="uid://cqihyvgv02esy" path="res://scenes/Goal.tscn" id="4_u70bt"]
+
+[node name="Level1" type="Node3D"]
+
+[node name="World1" parent="." instance=ExtResource("1_6wofq")]
+
+[node name="ObjLamp" parent="World1" instance=ExtResource("2_7h1ep")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="World1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5044, 0, 0)
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="World1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.1559, 0, 0)
+use_collision = true
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="World1"]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="World1/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20874, 6.54637, -0.0500488)
+use_collision = true
+flip_faces = true
+size = Vector3(16, 13, 15)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="World1/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5197, 6.52957, 0)
+flip_faces = true
+size = Vector3(32, 12.9492, 11)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="World1/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.9539, -1.23028, 0)
+flip_faces = true
+size = Vector3(14.0792, 13, 11)
+
+[node name="Player" parent="." instance=ExtResource("2_7gfon")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.281044, 2.15426, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.19248, 0)
+omni_range = 63.079
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.7346, 2.0392, 0)
+omni_range = 63.079
+
+[node name="Goal" parent="." instance=ExtResource("4_u70bt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.8566, 0, 0)
+
+[node name="Goal2" parent="." instance=ExtResource("4_u70bt")]
+transform = Transform3D(13.69, 0, 0, 0, 13.69, 0, 0, 0, 13.69, 21.034, -13.5337, 0)
