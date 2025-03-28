@@ -8,8 +8,6 @@ func _ready():
 
 func _process(delta):
 	var collider = get_collider()
-	
-	print(collider)
 
 	if is_colliding() and collider is Interactable:
 		if Input.is_action_just_pressed("interact"):
@@ -20,6 +18,3 @@ func _process(delta):
 			collider.interact()
 			root.light_strength = 24
 			root.lamps = 1
-	else:
-		if root.lamps == 1:
-			get_tree().set
