@@ -42,16 +42,9 @@ size = Vector3(14.0792, 13, 11)
 [node name="Player" parent="." instance=ExtResource("2_7gfon")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.281044, 2.15426, 0)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.19248, 0)
-omni_range = 63.079
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.7346, 2.0392, 0)
-omni_range = 63.079
-
 [node name="Goal" parent="." instance=ExtResource("4_u70bt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.8566, 0, 0)
+sceneName = "Win"
 
 [node name="Goal2" parent="." instance=ExtResource("4_u70bt")]
 transform = Transform3D(13.69, 0, 0, 0, 13.69, 0, 0, 0, 13.69, 21.034, -13.5337, 0)

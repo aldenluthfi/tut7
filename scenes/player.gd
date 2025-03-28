@@ -6,14 +6,29 @@ extends CharacterBody3D
 @export var gravity: float = 9.8
 @export var jump_power: float = 5.0
 @export var mouse_sensitivity: float = 0.3
+@export var lamps: int = 0
+@export var light_strength = 0
 
 @onready var head: Node3D = $Head
 @onready var camera: Camera3D = $Head/Camera3D
+@onready var light: OmniLight3D = $OmniLight3D
 
 var camera_x_rotation: float = 0.0
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+func _process(delta: float) -> void:
+	light.omni_range = light_strength
+	
+	if Input.is_key_pressed(KEY_SHIFT):
+		speed = 5.0
+		jump_power = 2.5
+		head.position.y = 0.25
+	else:
+		speed = 10.0
+		jump_power = 5.0
+		head.position.y = 0.5
 
 func _physics_process(delta):
 	var movement_vector = Vector3.ZERO

@@ -1,13 +1,25 @@
 extends RayCast3D
 
 var current_collider
+var root
 
 func _ready():
-	pass
+	root = get_parent().get_parent().get_parent()
 
 func _process(delta):
 	var collider = get_collider()
+	
+	print(collider)
 
 	if is_colliding() and collider is Interactable:
 		if Input.is_action_just_pressed("interact"):
 			collider.interact()
+			
+	if is_colliding() and collider is Lamp:
+		if Input.is_action_just_pressed("interact"):
+			collider.interact()
+			root.light_strength = 24
+			root.lamps = 1
+	else:
+		if root.lamps == 1:
+			get_tree().set

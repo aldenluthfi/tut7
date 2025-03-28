@@ -1,11 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://bx2b1rmnovyl0"]
+[gd_scene load_steps=4 format=3 uid="uid://bx2b1rmnovyl0"]
+
+[ext_resource type="Script" path="res://scenes/lamp.gd" id="1_xetob"]
+[ext_resource type="Script" path="res://scenes/lamp_interact.gd" id="2_4n03v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2iw3j"]
 albedo_color = Color(1, 0.12549, 1, 1)
 
 [node name="ObjLamp" type="Node3D"]
+script = ExtResource("1_xetob")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+script = ExtResource("2_4n03v")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D"]
 radius = 0.695
@@ -25,3 +31,19 @@ mode = 1
 spin_degrees = 360.0
 spin_sides = 12
 material = SubResource("StandardMaterial3D_2iw3j")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.90039, 2.91131)
+omni_range = 24.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.98218, -2.38025)
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.89417, 2.91077, 0)
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.14709, 0)
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.29287, 2.79169, 0)
